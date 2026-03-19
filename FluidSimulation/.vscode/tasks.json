@@ -1,0 +1,18 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build & Run FluidSim",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "gcc main.c -o FluidSim.exe -IC:\\raylib\\include -LC:\\raylib\\lib -lraylib -lopengl32 -lgdi32 -lwinmm && FluidSim.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
