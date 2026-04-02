@@ -200,3 +200,5 @@ cd repo
 - Write clear commit messages
 - Push regularly
 - README.md is the first thing people see
+
+---
