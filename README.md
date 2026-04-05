@@ -16,7 +16,7 @@ A grid-based interactive fluid simulation implementing the Navier-Stokes equatio
 - Real-time vector field overlay
 
 **How it works:**  
-Each frame runs three steps — diffusion (fluid spreads out), advection (fluid moves with velocity), and projection (keeps the velocity field divergence-free so it looks like real fluid).
+Each frame runs three steps - diffusion (fluid spreads out), advection (fluid moves with velocity), and projection (keeps the velocity field divergence-free so it looks like real fluid).
 
 **Build**
 ```bash
@@ -32,11 +32,11 @@ gcc fluid.c -lraylib -lm -o fluid
 Simulates emergent flocking behaviour of 500 agents using three simple rules.
 
 **Rules**
-- **Separation** — avoid crowding neighbours
-- **Alignment** — steer towards average heading of neighbours
-- **Cohesion** — steer towards average position of neighbours
+- **Separation** - avoid crowding neighbours
+- **Alignment** - steer towards average heading of neighbours
+- **Cohesion** - steer towards average position of neighbours
 
-No agent is told to flock — the group behaviour emerges entirely from these local rules.
+No agent is told to flock. The group behaviour emerges entirely from these local rules.
 
 **Build**
 ```bash
