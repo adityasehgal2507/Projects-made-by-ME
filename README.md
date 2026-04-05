@@ -1,204 +1,70 @@
-# GitHub & Markdown Beginner Guide
+# Projects
 
-This README is for beginners learning **Git**, **GitHub**, and **Markdown**.
-
----
-
-## What is Git vs GitHub?
-
-- **Git** → tracks changes in your code (version control)
-- **GitHub** → website that stores Git repositories online
+A collection of simulation and creative coding projects built in C and Python.
 
 ---
 
-## Git Setup (Run Once)
+## 1. Real-Time Fluid Simulator
+**Language:** C  **Library:** Raylib
 
-### Check Git version
+A grid-based interactive fluid simulation implementing the Navier-Stokes equations.
+
+**Features**
+- Left click to inject fluid and velocity
+- Right click to draw walls
+- Middle click to erase walls
+- Real-time vector field overlay
+
+**How it works:**  
+Each frame runs three steps — diffusion (fluid spreads out), advection (fluid moves with velocity), and projection (keeps the velocity field divergence-free so it looks like real fluid).
+
+**Build**
 ```bash
-git --version
-```
-
-### Configure your name and email
-```bash
-git config --global user.name "Your Name"
-git config --global user.email "youremail@example.com"
-```
-
----
-
-## Basic Git Commands
-
-### Create a new repository
-```bash
-git init
-```
-
-### Clone an existing repository
-```bash
-git clone https://github.com/username/repository-name.git
-```
-
-### Check repository status
-```bash
-git status
-```
-
-### Add files to staging
-```bash
-git add .
-```
-
-### Commit changes
-```bash
-git commit -m "Your commit message"
-```
-
-### Connect local repo to GitHub
-```bash
-git remote add origin https://github.com/username/repo-name.git
-```
-
-### Push code to GitHub
-```bash
-git push -u origin main
-```
-
-### Pull latest changes
-```bash
-git pull
+gcc fluid.c -lraylib -lm -o fluid
+./fluid
 ```
 
 ---
 
-## Branching
+## 2. Boids Flocking Simulation
+**Language:** C  **Library:** Raylib
 
-### Create a new branch
+Simulates emergent flocking behaviour of 500 agents using three simple rules.
+
+**Rules**
+- **Separation** — avoid crowding neighbours
+- **Alignment** — steer towards average heading of neighbours
+- **Cohesion** — steer towards average position of neighbours
+
+No agent is told to flock — the group behaviour emerges entirely from these local rules.
+
+**Build**
 ```bash
-git checkout -b branch-name
+gcc boids.c -lraylib -lm -o boids
+./boids
 ```
 
-### Switch branches
+---
+
+## 3. Image-to-Braille Converter
+**Language:** Python  **Libraries:** Pillow, Tkinter
+
+Converts any image into Unicode Braille art and saves it as a `.txt` or `.html` file.
+
+**Features**
+- GUI file picker
+- Atkinson dithering for accurate monochrome conversion
+- HTML output with proper font rendering for Braille characters
+
+**Usage**
 ```bash
-git checkout main
+pip install pillow
+python main.py
 ```
+Then select an image — output is saved as `output.txt` and opened in your browser.
 
 ---
 
-## Markdown Basics
-
-Markdown files end with `.md`
-
-### Headings
-```md
-# Heading 1
-## Heading 2
-### Heading 3
-```
-
-### Text Formatting
-```md
-**Bold**
-*Italic*
-~~Strikethrough~~
-```
-
----
-
-## Lists
-
-Bullet list:
-```md
-- Item one
-- Item two
-  - Sub item
-```
-
-Numbered list:
-```md
-1. First
-2. Second
-3. Third
-```
-
----
-
-## Code in Markdown
-
-Inline code:
-```md
-Use `git status` to check changes
-```
-
-Code block:
-```md
-```bash
-git add .
-git commit -m "message"
-```
-```
-
----
-
-## Links and Images
-
-Link:
-```md
-[GitHub](https://github.com)
-```
-
-Image:
-```md
-![Alt text](image-url.png)
-```
-
----
-
-## Blockquotes
-
-```md
-> This is a note
-```
-
----
-
-## Tables
-
-```md
-| Command     | Description        |
-|------------|--------------------|
-| git init   | Create repository  |
-| git status | Check repo status  |
-| git push   | Upload code        |
-```
-
----
-
-## Example Beginner README
-
-```md
-# My First GitHub Project
-
-This is my first project using Git and GitHub.
-
-## How to Run
-```bash
-git clone https://github.com/username/repo.git
-cd repo
-```
-
-## What I Learned
-- Git basics
-- Markdown
-- GitHub workflow
-```
-
----
-
-## Tips
-
-- Commit often
-- Write clear commit messages
-- Push regularly
-- README.md is the first thing people see
-
----
+## Dependencies
+- [Raylib](https://www.raylib.com/) — for C projects
+- [Pillow](https://python-pillow.org/) — for the Braille converter
