@@ -58,7 +58,7 @@ Converts any image into Unicode Braille art and saves it as a `.txt` or `.html` 
 
 **Usage**
 ```bash
-pip install pillow
+pip install -r requirements.txt
 python main.py
 ```
 Then select an image — output is saved as `output.txt` and opened in your browser.

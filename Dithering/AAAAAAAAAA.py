@@ -1,4 +1,4 @@
-from PIL import Image, ImageFont
+from PIL import Image
 from pathlib import Path
 import os
 import sys
