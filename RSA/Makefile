@@ -8,8 +8,8 @@ all: $(TARGET)
 	./$(TARGET)
 
 # Rule to compile the executable directly
-$(TARGET): rsa.c miller-rabin.c
-	$(CC) $(CFLAGS) rsa.c miller-rabin.c -o $(TARGET) $(LIBS)
+$(TARGET): rsa_test.c miller-rabin.c
+	$(CC) $(CFLAGS) rsa_test.c miller-rabin.c -o $(TARGET) $(LIBS)
 
 clean:
 	rm -f $(TARGET)
