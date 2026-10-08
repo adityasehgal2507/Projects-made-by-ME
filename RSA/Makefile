@@ -1,17 +1,32 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -O2
 LIBS = -lm
-TARGET = rsa_test
 
-# The default rule now builds AND runs the program
-all: $(TARGET)
-	./$(TARGET)
+# Separate targets for the main program and the test suite
+RUN_TARGET = rsa_main
+TEST_TARGET = rsa_test
 
-# Rule to compile the executable directly
-$(TARGET): rsa_test.c miller-rabin.c
-	$(CC) $(CFLAGS) rsa_test.c miller-rabin.c -o $(TARGET) $(LIBS)
+# Default rule builds both executables without running them
+all: $(RUN_TARGET) $(TEST_TARGET)
 
+# Rule to compile the main RSA application
+$(RUN_TARGET): rsa.c miller-rabin.c
+	$(CC) $(CFLAGS) rsa.c miller-rabin.c -o $(RUN_TARGET) $(LIBS)
+
+# Rule to compile the RSA test suite
+$(TEST_TARGET): rsa_test.c miller-rabin.c
+	$(CC) $(CFLAGS) rsa_test.c miller-rabin.c -o $(TEST_TARGET) $(LIBS)
+
+# Compiles and runs only the main program
+run: $(RUN_TARGET)
+	./$(RUN_TARGET)
+
+# Compiles and runs only the test suite
+test: $(TEST_TARGET)
+	./$(TEST_TARGET)
+
+# Cleans up both executables
 clean:
-	rm -f $(TARGET)
+	rm -f $(RUN_TARGET) $(TEST_TARGET)
 
-.PHONY: all clean
+.PHONY: all run test clean
