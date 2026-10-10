@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -21,6 +22,10 @@ typedef unsigned long long ull;
 ull mulmod(ull a, ull b, ull mod);
 ull powmod(ull base, ull exp, ull mod);
 bool miller_rabin_deterministic(ull n);
+
+unsigned long long random_uint64();
+unsigned long long randint_large(unsigned long long min, unsigned long long max);
+unsigned long long get_random_prime(unsigned long long min, unsigned long long max);
 
 #ifdef __cplusplus
 } /* extern "C" */
